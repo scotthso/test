@@ -49,10 +49,10 @@ function geocodeLatLng(geocoder, latitude, longitude, output) {
   var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
   geocoder.geocode({'location': latlng}, function(results, status) {
     if (status === 'OK') {
-      output.innerHTML = '<p>Address: '+results[0].formatted_address+'</p><br><p>Latitude: '+latitude+'</p><br><p>Longitude: '+longitude+'</p>';
+      output.innerHTML = '<p style="font-weight:bold;">'+results[0].formatted_address+'</p><p>Latitude: '+latitude+'</p><p>Longitude: '+longitude+'</p><br>';
       writeUserData(results[0].formatted_address);
       var img = new Image();
-      img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false&markers=color:red%7Clabel:S%7C"+ latitude+","+longitude;
+      img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=350x350&sensor=false&markers=color:red%7Clabel:S%7C"+ latitude+","+longitude;
   
       output.appendChild(img);
     } else {
@@ -64,8 +64,12 @@ function geocodeLatLng(geocoder, latitude, longitude, output) {
 </script>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <body>
-test
+  <div class="part1">
+Success Towing
+<br><br>
+Location Request
 <p><button onclick="geoFindMe()">Show my location</button></p>
+</div>
 <div id="out"></div>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyCEyrjp64pTHQ1F9EHLcAtGHbPlK1FHjck">
