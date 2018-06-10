@@ -53,7 +53,7 @@ function geocodeLatLng(geocoder, latitude, longitude, output) {
       output.innerHTML = '<p style="font-weight:bold;">'+results[0].formatted_address+'</p><p>Latitude: '+latitude+'</p><p>Longitude: '+longitude+'</p><br>';
       writeUserData(results[0].formatted_address);
       var img = new Image();
-      img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=350x350&sensor=false&markers=color:red%7Clabel:S%7C"+ latitude+","+longitude;
+      img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=350x350&markers=color:red%7Clabel:S%7C"+ latitude+","+longitude;
   
       output.appendChild(img);
     } else {
